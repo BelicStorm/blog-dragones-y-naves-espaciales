@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+
+
+.brutalist {
+    /* border: 0.5px solid #e1e1e1; */
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-family: Roboto;
+}
+.content {
+    font-family: Roboto;
+}
+.brutalist.card{
+    font-family: Roboto;
+    padding: 0;
+}
+.brutalist.article{
+    font-family: Roboto;
+    padding: 4rem 2rem;
+}
+.bg-blue {
+    font-family: Roboto;
+    background: rgba(67,65,144,0.25);
+    color: rgba(67,65,144,1);
+}
+.bg-purple {
+    font-family: Roboto;
+    background: rgba(85,60,154,0.25);
+    color: rgba(85,60,154,1);
+}
+.bg-white {
+    font-family: Roboto;
+    background: white;
+}
+.bg-red {
+    font-family: Roboto;
+    background: rgba(155,44,44,0.25);
+    color: rgba(155,44,44,1);
+}
+.bg-green {
+    font-family: Roboto;
+    background: rgba(40,94,97,0.25);
+    color: rgba(40,94,97,1);
+}
+.bg-pink {
+    font-family: Roboto;
+    background: rgba(151,38,109,0.25);;
+    color: rgba(151,38,109,1);
+}
+.bg-yellow {
+    font-family: Roboto;
+    background: rgba(156,66,33,0.25);
+    color: rgba(156,66,33,1);
+}
+
+.menu {
+    font-family: Roboto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    font-weight: 500;
+    font-size: 18px;
+}
+.article-row {
+    font-family: Roboto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    height: 100%;
+    max-width: 52em;
+}
+
+.article-card-left {
+    @apply w-1/2 overflow-hidden pl-2;
+}
+
+.article-card-right {
+    font-family: Roboto;
+    overflow: hidden;
+    width: 300px;
+    display: flex;
+    margin: 1em;
+    flex-direction: column;
+    align-items: center;
+}
+
+.article-image {
+    border-radius: 8px;
+    height: auto;
+    width: 50%;
+}
+
+.article-title {
+    @apply text-gray-900 font-thin font-serif text-xl my-5;
+}
+
+.article-body {
+    @apply text-gray-900 font-thin tracking-wider leading-loose;
+}
+
+.readmore {
+    @apply inline-block pt-5 text-sm font-medium tracking-wider;
+}
+
+@import 'tailwindcss/utilities';
+
+.body{
+    background: #f2f9ff;
+    font-family: Roboto;
+}
