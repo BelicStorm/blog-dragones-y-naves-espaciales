@@ -1,11 +1,11 @@
 import { makePosts } from "../../utils";
 
-const RecentPostsSection = () =>{
+const RecentPostsSection = ({posts}) =>{
     
     return <div className="mt-10 brutalist bg-white hidden lg:block">
-                <h2 className="font-light text-xl mb-5 text-gray-900 text-center">Recent Posts</h2>
+                <h2 className="font-light text-xl mb-5 text-gray-900 text-center">Articulos recientes</h2>
                 <ul>
-                    {makePosts(["","","",""])}
+                    {makePosts(posts)}
                 </ul>
             </div>
 }

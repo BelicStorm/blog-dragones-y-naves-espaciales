@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        "roboto": "Roboto"
+        "Nunito": "Nunito"
       },
       inset: {
         '2': '2px',

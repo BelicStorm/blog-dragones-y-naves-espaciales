@@ -1,24 +1,27 @@
-import { BlogCard, SmallCard } from "../components/cards.components"
+import Link from "next/link"
+import { BlogCard, BookCard, SmallCard } from "../components/cards.components"
 
-const makeArticles= (posts)=>{
+const makeArticles= (posts,articleType)=>{
     let toReturn =  posts 
                         ? posts.length > 0
                             ? posts.map((e,index)=>{
-                                return <BlogCard key={index} content={e}/>
+                                return <BlogCard key={index} content={e} articleType={articleType}/>
                               })
                             : ""
                         : ""
     return toReturn
 }
-
+const makeBooks= (posts,moreProps)=>{
+    let [author, title, pages, editorial ,sinopsis] = posts[0]
+    let whereToBuy = posts[1]
+    return <BookCard key={title} author={author} title={title} pages={pages} editorial={editorial} sinopsis={sinopsis} moreProps={moreProps} whereToBuy={whereToBuy}/>
+}
 const makePosts = (posts) => {
     let toReturn =  posts 
                         ? posts.length > 0
                             ? posts.map((e,index)=>{
-                                return <li className="mb-3" key={index}>
-                                            <a href="" className="flex">
-                                                <SmallCard/>
-                                            </a>
+                                return <li className="mb-3" key={e.title}>
+                                            <SmallCard post={e}/>
                                         </li>
                               })
                             : ""
@@ -30,9 +33,10 @@ const makeCategories= (identifier,Categories)=>{
     let toReturn =  Categories 
                         ? Categories.length > 0
                             ? Categories.map((e,index)=>{
-                                return  <a key={`${identifier}-${e.name}`} href="" className="text-gray-900 font-thin font-serif text-lg py-2 block flex-1">
-                                          <span className="text-sm rounded-full px-4 py-1 leading-normal bg-blue border">{e.name}</span>
-                                        </a>
+                                const {name, color} = e
+                                return  <Link key={`${identifier}-${e.name}`} href={`/tags/${name}`} className="text-gray-900 font-thin font-serif text-lg py-2 block">
+                                          <span className={`text-sm px-4 py-1 leading-normal  brutalist bg-white cursor-pointer`}>{name}</span>
+                                        </Link>
                               })
                             : ""
                         : ""
@@ -98,5 +102,5 @@ const renderBlock = (block) => {
 };
 
 export {
-    makeArticles, makePosts, makeCategories, renderBlock
+    makeArticles, makePosts, makeCategories, renderBlock, makeBooks
 }

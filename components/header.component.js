@@ -1,31 +1,37 @@
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
+const seoObject =(pageTitle) => {
+    switch (pageTitle) {
+      case "404":
+      case "500":
+        return {noidex:true}
+    
+      default:
+        return {title:pageTitle}
+    }
+}
 
 export default function Header({ pageTitle, logoText, menu }) {
+    const router = useRouter()
     return (
-      <>
-        <Head>
-          <title>{pageTitle}</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <header className="text-gray-900">
-        <div className="border-b py-2">
-            <section className="max-w-screen-xl mx-auto p-3 sm:p-5 flex justify-center items-center" >
-                <div className="flex justify-center items-center gap-8">
-                    <img src="/Logo.svg" className="w-10 h-10" />
-                    <a href="#" className="text-hover">Dragones y Naves Espaciales</a>
-                </div>
-            </section>
+      <header className="p-12">
+       <NextSeo {...seoObject(pageTitle)} />
+
+        <div className="text-gray-900 brutalist bg-white ">
+          <nav className="text-sm p-4">
+              <ul className="max-w-2xl mx-auto hidden sm:flex justify-between  uppercase">
+                {
+                  menu.map((menuItem)=>{
+                    const linkClass = router.pathname === menuItem.url ?"border-black" :"text-hover border-white hover:border-black"
+                      return <li key={menuItem.text} className={`border-2 p-2 ${linkClass}`}><Link href={menuItem.url}>{menuItem.text}</Link></li>
+                  })
+                }
+              </ul>
+          </nav>
         </div>
-        <nav className="text-sm px-4">
-            <ul className="max-w-2xl mx-auto hidden sm:flex justify-between mt-4 uppercase">
-            <li><a href="#" className="text-hover hover:underline decoration-pink-500">Todos los articulos</a></li>
-            <li><a href="#" className="text-hover hover:underline decoration-pink-500">Categorias</a></li>
-            <li><a href="#" className="text-hover hover:underline decoration-pink-500">Sobre Nosotros</a></li>
-            </ul>
-        </nav>
-        </header>
         
-      </>
+      </header>
     );
  }        

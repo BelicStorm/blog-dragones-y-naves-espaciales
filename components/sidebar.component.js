@@ -1,15 +1,16 @@
-import {SearchSection,HeroSection,CategoriesSection,RecentPostsSection} from "./sideBarComponents/"
+import {SearchSection,HeroSection,CategoriesSection,RecentPostsSection, SubscribeSection} from "./sideBarComponents/"
 
-const SideBar = ()=>{
+const SideBar = ({recentPosts, tags})=>{
     return <div className="w-full lg:w-2/6 sm:p-8">
     <div className="ml-2 lg mr-2 max-w-screen-lg:w-32" style={{
           position: "sticky",
           top: "1em"
     }}>
         <HeroSection/>
-        <CategoriesSection/>
+        <SubscribeSection/>
+        <CategoriesSection tags={tags}/>
         <SearchSection/>
-        <RecentPostsSection/>
+        <RecentPostsSection posts={recentPosts}/>
     </div>
 </div>
 }

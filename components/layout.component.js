@@ -3,13 +3,13 @@ import Header from "./header.component";
 
 
 export default function Layout({ pageTitle, children }) {
-    const menu = [{text:"Item1", url:"/"}, {text:"Item2", url:"/"}]
+    const menu = [{text:"Todos los articulos", url:"/allArticles"}, {text:"Estante de libros", url:"/estanteria"},/* {text:"Conocenos", url:"/aboutUs"} */]
     return  <>
                 <Header pageTitle={pageTitle} logoText="Test" menu={menu}/>
-                    <main className="max-w-1xl mx-auto pb-10 pt-10">
+                    <main className="max-w-1xl mx-auto pb-10" style={{maxWidth: "1406px"}}>
                         {children}
                     </main>
-                <Footer logoText="test" menu={menu}/>
+                <Footer logoText="test"/>
             </>
 
 }

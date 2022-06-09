@@ -3,20 +3,20 @@ import { useRouter } from "next/router";
 import { databaseId } from ".";
 import Layout from "../components/layout.component";
 import SideBar from "../components/sidebar.component"
-import { getDatabase, getPaginatedDatabase, getTags,   } from "../lib/notion";
+import { getDatabase, getPaginatedBooks, getTags,   } from "../lib/notion";
 import { makeArticles } from "../utils";
 
-export default function AllArticles({ posts,recentPosts, tags, paginationProps }) {
+export default function AllArticles({ books,recentPosts, tags, paginationProps }) {
   const router = useRouter()
-  return <Layout pageTitle="Todos los articulos">
+  return <Layout pageTitle="Estanteria">
             <div className="flex flex-wrap"> 
                 <SideBar recentPosts={recentPosts} tags={tags}/>
                 <div className="w-full overflow-hidden  lg:w-4/6 md:mt-8">
                     <div  style={{display: "flex", flexDirection:"column", alignItems:"center"}}>
-                        <h2 className="text-2xl m-8 md:text-4xl font-semibold my-5">Todos los articulos</h2>        
+                        <h2 className="text-2xl m-8 md:text-4xl font-semibold my-5">Todos los libros</h2>        
                         <div className="article-row">
                             {
-                              makeArticles(posts,"article")
+                              makeArticles(books,"book")
                             }                           
                         </div>
                         
@@ -29,8 +29,8 @@ export default function AllArticles({ posts,recentPosts, tags, paginationProps }
                          }
                          {
                              paginationProps.hasMore 
-                                ?<Link href={`/allArticles?page=${paginationProps.nextCursor}`}> 
-                                    <button className=" bg-white brutalist m-2 tracking-widest text-sm uppercase font-medium">Siguiente</button>
+                                ?<Link href={`/estanteria?page=${paginationProps.nextCursor}`}> 
+                                    <button className="brutalist bg-white m-2 tracking-widest text-sm uppercase font-medium">Siguiente</button>
                                 </Link> 
                                 :""
                          }
@@ -43,10 +43,11 @@ export default function AllArticles({ posts,recentPosts, tags, paginationProps }
 
 
 export const getServerSideProps = async ({query}) => {
-  const dbPosts = await getPaginatedDatabase(databaseId,4,query.page);
+  const dbBooks = await getPaginatedBooks(databaseId,4,query.page);
   const dbRecentPosts = await getDatabase (databaseId);
   const tags = await getTags(databaseId)
-  const posts  = dbPosts.results.length<=0 ? [] :dbPosts.results.map((post) => {
+
+  const books  = dbBooks.results.length<=0 ? [] :dbBooks.results.map((post) => {
     const {date, slug, status, summary, tags, title, cover } = post.properties
     const summaryToUse = summary.rich_text[0]?summary.rich_text[0].plain_text:""
     return {
@@ -76,12 +77,12 @@ export const getServerSideProps = async ({query}) => {
   })
   return {
     props: {
-      posts:posts,
+      books:books,
       recentPosts: recentPosts,
       tags: tags[0].properties.tags.multi_select,
       paginationProps:{
-          hasMore: dbPosts.has_more ? true : false,
-          nextCursor: dbPosts.next_cursor ? dbPosts.next_cursor :"",
+          hasMore: dbBooks.has_more ? true : false,
+          nextCursor: dbBooks.next_cursor ? dbBooks.next_cursor :"",
           firstPage:query.page?false:true,
       }
     }
