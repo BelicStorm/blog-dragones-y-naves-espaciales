@@ -1,4 +1,4 @@
-import { getDatabase, getPage, getBlocks, getDatabaseFromSlug, getTags } from "../../lib/notion";
+import { getDatabase, getPage, getBlocks, getDatabaseFromSlug, getTags, getBooks } from "../../lib/notion";
 import { databaseId } from "../index.js";
 import Layout from "../../components/layout.component";
 import SideBar from "../../components/sidebar.component";
@@ -24,19 +24,19 @@ export default function BookDetails(props) {
         
         return [text,links]
     }
-     return <Layout pageTitle={props.page.title}>
+     return <Layout pageTitle={props?.page?.title}>
                 <div className="flex flex-wrap">
                     <SideBar recentPosts={props.recentPosts} tags={props.tags}/>
                     <div className="w-full overflow-hidden lg:w-4/6 sm:p-8">
                         {
                             props.blocks 
                             ?<section className="container mx-auto border-b brutalist article  bg-white">
-                                 {makeBooks(makeArticleBody(),props.page)}
+                                 {makeBooks(makeArticleBody(),props?.page)}
                                 <div className="max-w-2xl mx-auto px-4">
                                     <article className="flex mt-8 mb-6 m px-8 md:mx-8 py-6 justify-between text-gray-900 text-xs" >
                                         
-                                        {makeCategories(props.page.title,props.page.tags)}
-                                        <ShareLinks title={props.page.title}/>
+                                        {makeCategories(props?.page?.title,props?.page?.tags)}
+                                        <ShareLinks title={props?.page?.title}/>
                                     </article>
                                 </div>
                             </section>
@@ -49,10 +49,10 @@ export default function BookDetails(props) {
 
 
 export const getStaticPaths = async () => {
-  const database = await getDatabase(databaseId);
+  const database = await getBooks(databaseId);
   return {
     paths: database.map(row => {
-        return `/book/${row.properties.slug.rich_text[0].plain_text}`
+        return `/book/${row.properties.slug.rich_text[0]?.plain_text}`
     }),
     fallback: true
   }
@@ -107,7 +107,6 @@ export const getStaticProps = async (context) => {
   })
   const summaryToUse = page.properties.summary.rich_text[0] ? page.properties.summary.rich_text[0].plain_text : ""
   const related = page.properties.Related.multi_select[0] ? page.properties.Related.multi_select :""
-  
   return {
     props: {
       page:{
