@@ -8,7 +8,7 @@ import { makeArticles } from "../../utils";
 
 export default function SearchedTags({ posts, recentPosts, tags, tag,paginationProps }) {
   const router = useRouter()
-  return <Layout pageTitle={props.page.title}>
+  return <Layout>
             <div className="flex flex-wrap"> 
                 <SideBar recentPosts={recentPosts} tags={tags}/>
                 <div className="w-full overflow-hidden  lg:w-4/6 md:mt-8">
