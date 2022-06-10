@@ -17,7 +17,9 @@ const SmallCard = ({post}) =>{
 }
 const BlogCard = ({content,articleType}) =>{
     const {id,date, slug, status,cover, summary, tags, title } = content
-    const url = articleType === "book" ?`/book/${slug}` :`/article/${slug}` 
+    const url = articleType === "book" || tags.some(({name})=>name==="Book")
+                    ?`/book/${slug}` 
+                    :`/article/${slug}` 
     return <article className="relative max-w-sm cursor-pointer brutalist card bg-white">
                 <Link href={url}>
                   <img className="w-auto h-9/12" src={cover} alt={`${title} article cover`}
