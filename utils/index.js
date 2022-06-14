@@ -50,10 +50,13 @@ const renderBlock = (block) => {
   switch (type) {
     case "paragraph":
       return (
-        <p key={`paragraph-${id}`}>
-          {value.rich_text[0]?.plain_text}
-        </p>
-        <br>
+        <>
+            <p key={`paragraph-${id}`}>
+              {value.rich_text[0]?.plain_text}
+            </p>
+            <br>
+        </>
+       
       );
     case "heading_1":
       return (
