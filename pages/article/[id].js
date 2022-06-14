@@ -11,7 +11,7 @@ export default function ArticleDetails(props) {
     const makeArticleBody = () =>{
         let to_return = [];
         props.blocks.forEach((block,index) => {
-            if (![0].includes(index)) {
+            if (![1].includes(index)) {
                 to_return = [...to_return, renderBlock(block)]
             }
             
