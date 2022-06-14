@@ -26,7 +26,7 @@ export default function ArticleDetails(props) {
                             props.blocks 
                             ?<section className="container mx-auto border-b brutalist article  bg-white">
                                 <div className="mx-auto w-20 border-b border-orange-600"></div>
-                                    {renderBlock(props?.page?.title)}
+                                    {renderBlock(props?.blocks[0])}
                                     <figure key={`image-${props.page.title}`} className="flex justify-center flex-col">
                                             <img
                                             className="image my-16 rounded-lg"
