@@ -18,7 +18,7 @@ export default function ArticleDetails(props) {
         });
         return to_return
     }
-     return <Layout pageTitle={props.page.title}>
+     return <Layout pageTitle={props?.page?.title}>
                 <div className="flex flex-wrap">
                     <SideBar recentPosts={props.recentPosts} tags={props.tags}/>
                     <div className="w-full overflow-hidden lg:w-4/6 sm:px-8 py-8">
@@ -26,7 +26,7 @@ export default function ArticleDetails(props) {
                             props.blocks 
                             ?<section className="container mx-auto border-b brutalist article  bg-white">
                                 <div className="mx-auto w-20 border-b border-orange-600"></div>
-                                    {renderBlock(props.page.title)}
+                                    {renderBlock(props?.page?.title)}
                                     <figure key={`image-${props.page.title}`} className="flex justify-center flex-col">
                                             <img
                                             className="image my-16 rounded-lg"
