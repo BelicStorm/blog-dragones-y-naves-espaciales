@@ -11,14 +11,14 @@ export default function ArticleDetails(props) {
     const makeArticleBody = () =>{
         let to_return = [];
         props.blocks.forEach((block,index) => {
-            if (![1,0].includes(index)) {
+            if (![0,1].includes(index)) {
                 to_return = [...to_return, renderBlock(block)]
             }
             
         });
         return to_return
     }
-     return <Layout pageTitle="Article Test">
+     return <Layout pageTitle={props.page.title}>
                 <div className="flex flex-wrap">
                     <SideBar recentPosts={props.recentPosts} tags={props.tags}/>
                     <div className="w-full overflow-hidden lg:w-4/6 sm:px-8 py-8">
@@ -26,7 +26,7 @@ export default function ArticleDetails(props) {
                             props.blocks 
                             ?<section className="container mx-auto border-b brutalist article  bg-white">
                                 <div className="mx-auto w-20 border-b border-orange-600"></div>
-                                    {renderBlock(props.blocks[0])}
+                                    {renderBlock(props.page.title)}
                                     <figure key={`image-${props.page.title}`} className="flex justify-center flex-col">
                                             <img
                                             className="image my-16 rounded-lg"
