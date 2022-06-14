@@ -8,9 +8,6 @@ const SmallCard = ({post}) =>{
               <div className="p-10 my-auto bg-white">
                   <h2 className="text-md font-semibold text-gray-800">{title}</h2>
                   <h3 className="text-sm text-gray-300">{date.start}</h3>
-                  <p className="text-sm text-gray-400 mt-2">
-                      {summary}
-                  </p>
               </div>
           </article>                          
     </Link>
@@ -22,7 +19,7 @@ const BlogCard = ({content,articleType}) =>{
                     :`/article/${slug}` 
     return <article className="relative max-w-sm cursor-pointer brutalist card bg-white">
                 <Link href={url}>
-                  <img className="w-auto h-9/12" src={cover} alt={`${title} article cover`}
+                  <img className="w-auto h-9/12" style={{    padding: "4em 4em 0em"}} src={cover} alt={`${title} article cover`}
                     onError={(e)=>{e.target.onerror = null; e.target.src="/Logo.svg"}}
                   />
                 </Link>
