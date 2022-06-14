@@ -54,7 +54,7 @@ const renderBlock = (block) => {
             <p key={`paragraph-${id}`}>
               {value.rich_text[0]?.plain_text}
             </p>
-            <br>
+            <br/>
         </>
        
       );
