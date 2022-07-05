@@ -23,7 +23,7 @@ const BlogCard = ({content,articleType}) =>{
                     onError={(e)=>{e.target.onerror = null; e.target.src="/Logo.svg"}}
                   />
                 </Link>
-                <div className="absolute right-4 top-4 flex flex-row">
+                <div className="absolute right-4 top-4 flex flex-col">
                   {makeCategories(title,tags)}
                 </div>
                 <Link href={url}>
