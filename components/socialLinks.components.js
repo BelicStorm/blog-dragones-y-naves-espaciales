@@ -24,7 +24,6 @@ const RSSLinks = () =>{
 }
 
 const ShareLinks = (Title) =>{
-    console.log(`https://twitter.com/intent/tweet?ref_src=${location.href}&text=${Title.title}`);
    return   <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
                 <span className="ml-3 text-gray-900 font-thin mr-2 ">Compartir: </span>
                 
