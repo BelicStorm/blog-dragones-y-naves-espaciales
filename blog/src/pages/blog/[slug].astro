@@ -1,0 +1,55 @@
+---
+// src/pages/blog/[slug].astro
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import Tiptap from "../../components/FormNewPost"
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection("blog");
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<div>
+  <article>
+    <Image
+      src={post.data.cover}
+      alt={post.data.title}
+      class="object-cover object-center !m-0 aspect-square block"
+      width={200}
+      height={200}
+    />
+    <h1 class="md:!text-5xl md:!leading-[1.2]">{post.data.title}</h1>
+    <p class="lead">{post.data.excerpt}</p>
+    <div>
+      <Content />
+    </div>
+  </article>
+  <div class="bg-white py-6 sm:py-8 lg:py-12">
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <div class="mb-10 md:mb-16">
+        <h2
+          class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl"
+        >
+          Get in touch
+        </h2>
+
+        <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
+          This is a section of some simple filler text, also known as
+          placeholder text. It shares some characteristics of a real written
+          text but is random or otherwise generated.
+        </p>
+      </div>
+      <Tiptap client:load />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{
+    "placeholder": "Placeholder...",
+    "label": "Template",
+    "options": [
+        {
+            "label": "CTA",
+            "value": "cta"
+        },
+        {
+            "label": "Blog",
+            "value": "blog"
+        }
+    ]
+}

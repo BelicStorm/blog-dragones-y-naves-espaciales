@@ -1,0 +1,13 @@
+{
+    "title": {
+        "value": "Blog Template",
+        "config": {
+            "type": "RichText",
+            "placeholder": "Placeholder...",
+            "label": "Title",
+            "props": {
+                "label": "Heading"
+            }
+        }
+    }
+}
