@@ -1,9 +1,9 @@
 import CTA from "./cta.template"
-import Blog from "./blog.template"
+import Header from "./header.template"
 
 const Templates = {
     CTA,
-    Blog
+    Header
 }
 
 export default Templates

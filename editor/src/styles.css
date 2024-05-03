@@ -148,7 +148,7 @@ button.secondary:focus {
   flex-direction: column;
   align-items: center;
   height: calc(100% - 48px);
-  padding: 32px;
+  padding: 12px;
   background-image: url("https://images.prismic.io/findone/fafc6030-f24a-4974-b5f4-343c88c5cd22_previewBackground.jpg");
   background-repeat: repeat;
   background-size: 10px;

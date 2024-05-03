@@ -1,10 +1,10 @@
 import CTA from "./ctaTemplate.model.json"
-import Blog from "./blogTemplate.model.json"
+import Header from "./headerTemplate.model.json"
 import selectTemplate from "./selectTemplate.mode.json"
 
 const templates = {
     CTA,
-    Blog,
+    Header,
     selectTemplate
 }
 

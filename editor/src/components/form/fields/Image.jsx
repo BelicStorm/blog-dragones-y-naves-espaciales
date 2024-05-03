@@ -42,18 +42,22 @@ const IMAGES = [
 
 function Image(props) {
   const [open, setOpen] = React.useState(false);
+  const { name, fieldContent, onChangeImage } = props
+  const { value, child, config } = fieldContent
+  const { label } = config.props
+
   const ImageModal = ({ onClose, open }) => (
     <Modal open={open} onClose={onClose} center>
       <header>Select an image from Unsplash.com</header>
       <section>
         {IMAGES.map((i, index) => (
           <img
-            key={props.name + index}
+            key={name + index}
             alt={i.name}
             loading="lazy"
             src={i.value}
             onClick={() => {
-              props.onChangeImage({ src: i.value, name: props.name });
+              onChangeImage({ src: i.value, name: props.name });
               onClose();
             }}
           />
@@ -66,14 +70,14 @@ function Image(props) {
       <ImageModal open={open} onClose={() => setOpen(false)} />
       <div className="image-container">
         <div className="title">
-          <label>{props.label}</label>
+          <label>{label}</label>
         </div>
         <div className="preview">
           <img
             onClick={() => setOpen(true)}
             className="image-preview"
             alt="imagze"
-            src={props.value}
+            src={value}
           />
         </div>
         <div className="actions">
@@ -90,8 +94,8 @@ function Image(props) {
           </div>
         </div>
         <Field
-          placeholder={props.child.alt.config.label}
-          label={props.child.alt.config.label}
+          placeholder={child.alt.config.label}
+          label={child.alt.config.label}
         />
       </div>
     </Fragment>

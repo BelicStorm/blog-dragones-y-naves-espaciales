@@ -31,21 +31,14 @@ export default function Form(props) {
       <div className="fieldSet">
         {Object.keys(context.form).map((key, i) => {
           const type = context.form[key].config.type;
-          const value = context.form[key].value;
-          const child = context.form[key]?.child || {};
-          const label = context.form[key].config.props.label;
-          const options = context.form[key].config.props.options;
           const Field = FIELDS[type];
           return (
             <Field
-              label={label}
-              child={child}
-              key={key + i}
-              value={value}
-              options={options}
               onChange={context.onChange}
               onRichTextUpdate={context.onRichTextUpdate}
               onChangeImage={context.onChangeImage}
+              fieldContent={context.form[key]}
+              key={key + i}
               name={key}
             />
           );

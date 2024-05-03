@@ -1,6 +1,6 @@
 {
     "title": {
-        "value": "Blog Template",
+        "value": "Header Template",
         "config": {
             "type": "RichText",
             "placeholder": "Placeholder...",

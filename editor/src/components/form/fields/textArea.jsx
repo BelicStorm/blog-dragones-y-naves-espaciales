@@ -7,11 +7,14 @@ import '@mdxeditor/editor/style.css'
 import "./simpleField.css";
 
 export function MdEditor(props) {
+  const { name, fieldContent, onChangeImage, onChange, onRichTextUpdate } = props
+  const { value, child, config } = fieldContent
+  const { label, options, type } = config.props
   return (
     <div className="field-container">
-      <label>{props.label}</label>
+      <label>{label}</label>
       <MDXEditor
-        markdown={props.value}
+        markdown={value}
         className="shadow-shadow-db rounded-8 prose"
         plugins={[
           quotePlugin(),
@@ -31,22 +34,26 @@ export function MdEditor(props) {
             ),
           }),
         ]}
-        onChange={(e)=>props.onRichTextUpdate({value:e, name:props.name})}
+        onChange={(e)=>onRichTextUpdate({value:e, name:name})}
       />
     </div>
   );
 }
 
 export function Textarea(props) {
+  const { name, fieldContent, onChange, value:propsValue } = props
+  const { value, config } = fieldContent
+  const { label, type } = config.props
+  console.log({propsValue,value});
   return (
     <div className="field-container">
-      <label>{props.label}</label>
+      <label>{label}</label>
       <textarea
         //onSelect={(e) => console.log(e.target.selectionStart, e)}
-        name={props.name}
-        type={props.type}
-        onChange={props.onChange}
-        value={props.value}
+        name={name}
+        type={type}
+        onChange={onChange}
+        defaultValue={propsValue??value}
         placeholder="Placeholder ..."
       />
     </div>
