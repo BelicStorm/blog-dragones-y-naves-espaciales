@@ -1,14 +1,14 @@
 import React from "react";
 import { FieldContext } from "./context";
 import "./form.css";
-import { ImageField, Textarea, SimpleField, Select } from "./fields/";
+import { ImageField, Textarea, SimpleField, Select, MdEditor } from "./fields/";
 import templateSelector from "../../models/selectTemplate.mode.json"
 
 const FIELDS = {
   Select: Select,
   KeyText: SimpleField,
   RichText: Textarea,
-  RichText2: Textarea,
+  RichText2: MdEditor,
   Image: ImageField
 };
 

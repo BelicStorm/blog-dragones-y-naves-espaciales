@@ -49,10 +49,11 @@ export default function App() {
     );
   }, []);
 
-  const onRichTextUpdate = React.useCallback(({ name, html, text }) => {
+  const onRichTextUpdate = React.useCallback(({ name, value }) => {
+    console.log(name, value)
     setFieldState(
       produce((draft) => {
-        draft[name].value = html;
+        draft[name].value = value;
       })
     );
   }, []);
