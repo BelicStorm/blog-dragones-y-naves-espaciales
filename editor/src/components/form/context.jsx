@@ -17,7 +17,8 @@ export function FieldContextProvider(props) {
       addField: props.addField,
       onRichTextUpdate: props.onRichTextUpdate,
       onChangeImage: props.onChangeImage,
-      templateOnChange: props.templateOnChange
+      templateOnChange: props.templateOnChange,
+      onFormEnables: props.onFormEnables
     }),
     [props]
   );

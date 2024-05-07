@@ -4,11 +4,11 @@
     "options": [
         {
             "label": "CTA",
-            "value": "cta"
+            "value": "CTA"
         },
         {
             "label": "Header",
-            "value": "header"
+            "value": "Header"
         }
     ]
 }

@@ -1,20 +1,50 @@
 import React from "react";
 import { FieldContext } from "./context";
 import "./form.css";
-import { ImageField, Textarea, SimpleField, Select, MdEditor } from "./fields/";
+import FIELDS from "./fields/";
 import templateSelector from "../../models/selectTemplate.mode.json"
 
-const FIELDS = {
-  Select: Select,
-  KeyText: SimpleField,
-  RichText: Textarea,
-  RichText2: MdEditor,
-  Image: ImageField
-};
+
 
 export default function Form(props) {
   const context = React.useContext(FieldContext);
   const { placeholder, label, options, } = templateSelector
+
+  const makeForm = (contextForm) => {
+    return Object.keys(contextForm).map((key, i) => {
+      const type = contextForm[key]?.config?.type;
+      const items = contextForm[key].items
+      const enabled = contextForm[key].enabled ?? true
+      const Field = type !== undefined && FIELDS[type];
+      const props = {
+        onChange:context.onChange,
+        onRichTextUpdate:context.onRichTextUpdate,
+        onChangeImage:context.onChangeImage,
+        onFormEnables:context.onFormEnables,
+        fieldContent:contextForm[key],
+        key:key + i,
+        name:key,
+        enabled:contextForm[key].config.enabled
+      }
+
+      const createSubFields = (contextForm)=>{
+        const [from,Component] = key.split("-")
+        const isSelected = contextForm[from].value.split("-").includes(Component)
+        const SubType = contextForm[key]?.config?.subType
+        const SubField = FIELDS[SubType]
+        const isFatherEnabled = contextForm[key].enabled
+        console.log("holaaaa", type, SubType)
+        return isSelected && isFatherEnabled ? <SubField {...props}/> :""
+      }
+      return (
+        <>
+          {enabled && !["itemGroup", "enumItems"].includes(type) && <Field {...props}/> }
+          {["enumItems"].includes(type) ? createSubFields(contextForm):""}
+          {items ? makeForm(items) : ""}
+        </>
+      );
+    })
+  }
 
   return (
     <div>
@@ -22,27 +52,11 @@ export default function Form(props) {
         Mocks editor BETA
       </header>
 
-        <FIELDS.Select
-          label={label}
-          options={options}
-          onChange={context.templateOnChange}
-        />
+      <FIELDS.Select label={label} options={options} onChange={context.templateOnChange} />
       <h2 className="font-bold p-2">{props.template}</h2>
+
       <div className="fieldSet">
-        {Object.keys(context.form).map((key, i) => {
-          const type = context.form[key].config.type;
-          const Field = FIELDS[type];
-          return (
-            <Field
-              onChange={context.onChange}
-              onRichTextUpdate={context.onRichTextUpdate}
-              onChangeImage={context.onChangeImage}
-              fieldContent={context.form[key]}
-              key={key + i}
-              name={key}
-            />
-          );
-        })}
+        {makeForm(context.form)}
       </div>
     </div>
   );

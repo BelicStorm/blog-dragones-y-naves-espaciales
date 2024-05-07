@@ -10,6 +10,7 @@ export function MdEditor(props) {
   const { name, fieldContent, onChangeImage, onChange, onRichTextUpdate } = props
   const { value, child, config } = fieldContent
   const { label, options, type } = config.props
+  const map = fieldContent?.config?.map
   return (
     <div className="field-container">
       <label>{label}</label>
@@ -34,7 +35,7 @@ export function MdEditor(props) {
             ),
           }),
         ]}
-        onChange={(e)=>onRichTextUpdate({value:e, name:name})}
+        onChange={(e)=>onRichTextUpdate({value:e, name:name},map)}
       />
     </div>
   );
@@ -44,7 +45,7 @@ export function Textarea(props) {
   const { name, fieldContent, onChange, value:propsValue } = props
   const { value, config } = fieldContent
   const { label, type } = config.props
-  console.log({propsValue,value});
+  const map = fieldContent?.config?.map
   return (
     <div className="field-container">
       <label>{label}</label>
@@ -52,7 +53,7 @@ export function Textarea(props) {
         //onSelect={(e) => console.log(e.target.selectionStart, e)}
         name={name}
         type={type}
-        onChange={onChange}
+        onChange={(e)=>onChange(e, map)}
         defaultValue={propsValue??value}
         placeholder="Placeholder ..."
       />

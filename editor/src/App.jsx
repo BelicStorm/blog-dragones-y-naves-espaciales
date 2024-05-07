@@ -10,19 +10,27 @@ export default function App() {
   const [template, setTemplate] = React.useState("CTA")
   const [fieldState, setFieldState] = React.useState(templates[template]);
 
-  const onAddAfield = (payload, id) => {
-    setFieldState(
-      produce((draft) => {
-        draft[id] = { ...payload };
-      })
-    );
-  };
+  // const onAddAfield = (payload, id) => {
+  //   setFieldState(
+  //     produce((draft) => {
+  //       draft[id] = { ...payload };
+  //     })
+  //   );
+  // };
 
-  const onFieldChange = React.useCallback((event) => {
-    event.preventDefault();
+  const onFieldChange = React.useCallback((e, map) => {
+    e.preventDefault();
     setFieldState(
       produce((draft) => {
-        draft[event.target.name].value = event.target.value;
+        if (map) {
+          const route = map.split("/")
+          const side = route[0]
+          const elementGroup = route[1]
+          draft[side].items[elementGroup].items[e.target.name].value= e.target.value
+        }else{
+          draft[e.target.name].value = e.target.value;
+        }
+        
       })
     );
   }, []);
@@ -35,21 +43,44 @@ export default function App() {
     );
   }, []);
 
+  const onFormEnables = React.useCallback((e, map) => {
+    const isVisible = e[2].target.checked
+    const side = e[1]
+    const element = e[0]
+    console.log(e);
+    setFieldState(
+      produce((draft) => {
+        const keys = Object.keys(draft[side].items[element].items)
+        keys.map((key)=>{
+          draft[side].items[element].items[key].enabled= isVisible
+        })
+      })
+    );
+  }, []);
+
   useEffect(() => {
     console.log("mounted");
 
     return () => console.log("unmounting... clean up here");
   });
 
-  const onChangeImage = React.useCallback(({ name, src }) => {
+  const onChangeImage = React.useCallback(({ name, src }, map) => {
     setFieldState(
       produce((draft) => {
-        draft[name].value = src;
+        console.log(map);
+        if (map) {
+          const route = map.split("/")
+          const side = route[0]
+          const elementGroup = route[1]
+          draft[side].items[elementGroup].items[name].value= src
+        }else{
+          draft[name].value = src;
+        }
       })
     );
   }, []);
 
-  const onRichTextUpdate = React.useCallback(({ name, value }) => {
+  const onRichTextUpdate = React.useCallback(({ name, value }, map) => {
     console.log(name, value)
     setFieldState(
       produce((draft) => {
@@ -66,8 +97,9 @@ export default function App() {
     <FieldContextProvider
       templateOnChange={templateOnChange}
       form={fieldState}
+      onFormEnables={onFormEnables}
       onChange={onFieldChange}
-      addField={onAddAfield}
+      // addField={onAddAfield}
       onRichTextUpdate={onRichTextUpdate}
       onChangeImage={onChangeImage}
     >
