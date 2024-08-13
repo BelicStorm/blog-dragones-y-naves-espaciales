@@ -1,0 +1,18 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro";
+import Layout from "@/layouts/Layout.astro";
+import projects from "@/data/projects";
+---
+
+<Layout>
+    <main class="flex flex-col gap-[4rem]">
+        <h1 class="text-2xl text-neutral-100">Projects</h1>
+
+        <article class="projectsContent w-full">
+            {
+                projects.length !== 0 &&
+                    projects.map((project) => <div class="project"><ProjectCard {...project} /></div>)
+            }
+        </article>
+    </main>
+</Layout>

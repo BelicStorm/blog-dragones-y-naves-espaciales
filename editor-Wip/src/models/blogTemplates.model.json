@@ -1,0 +1,187 @@
+{
+    "Test": {
+        "value": "Type1",
+        "config": {
+            "type": "Select",
+            "label": "CTA",
+            "placeholder": "Placeholder...",
+            "props": {
+                "label": "Background Color",
+                "options": [
+                    {
+                        "label": "Tipo 1",
+                        "value": "Type1"
+                    },
+                    {
+                        "label": "Tipo 2",
+                        "value": "Type2"
+                    },
+                    {
+                        "label": "Tipo 3",
+                        "value": "Type3"
+                    },
+                    {
+                        "label": "Tipo 4",
+                        "value": "Type4"
+                    }
+                ]
+            }
+        }
+    },
+    "UpperImage": {
+        "config": {
+            "type": "itemGroup"
+        },
+        "items": {
+            "ImageSelector": {
+                "config": {
+                    "type": "CheckBox",
+                    "label": "UpperImage",
+                    "enabled": false
+                },
+                "items": {
+                    "img": {
+                        "enabled": false,
+                        "value": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                        "config": {
+                            "type": "Image",
+                            "label": "Image",
+                            "placeholder": "Placeholder...",
+                            "map": "UpperImage/UpperImageSelector/img",
+                            "props": {
+                                "label": "Feature Image"
+                            }
+                        },
+                        "child": {
+                            "alt": {
+                                "value": "Alt text",
+                                "config": {
+                                    "type": "KeyText",
+                                    "label": "Alt text",
+                                    "placeholder": "Placeholder...",
+                                    "props": {
+                                        "label": "Alt text"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "DownImage": {
+        "config": {
+            "type": "itemGroup"
+        },
+        "items": {
+            "ImageSelector": {
+                "config": {
+                    "type": "CheckBox",
+                    "label": "DownImage",
+                    "enabled": false
+                },
+                "items": {
+                    "img": {
+                        "enabled": false,
+                        "value": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                        "config": {
+                            "type": "Image",
+                            "label": "Image",
+                            "placeholder": "Placeholder...",
+                            "map": "DownImage/DownImage/img",
+                            "props": {
+                                "label": "Feature Image"
+                            }
+                        },
+                        "child": {
+                            "alt": {
+                                "value": "Alt text",
+                                "config": {
+                                    "type": "KeyText",
+                                    "label": "Alt text",
+                                    "placeholder": "Placeholder...",
+                                    "props": {
+                                        "label": "Alt text"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "RecentPosts": {
+        "config": {
+            "type": "itemGroup"
+        },
+        "items": {
+            "CardSelelector": {
+                "config": {
+                    "type": "CheckBox",
+                    "label": "RecentPosts",
+                    "enabled": false
+                },
+                "items": {
+                    "cardType": {
+                        "enabled": false,
+                        "value": "Type1",
+                        "config": {
+                            "type": "Select",
+                            "label": "Blog",
+                            "map": "RecentPosts/CardSelelector/config",
+                            "placeholder": "Placeholder...",
+                            "props": {
+                                "label": "CardType",
+                                "options": [
+                                    {
+                                        "label": "Tipo 1",
+                                        "value": "Type1"
+                                    },
+                                    {
+                                        "label": "Tipo 2",
+                                        "value": "Type2"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "recentPostTitle": {
+                "value": "Recent Posts",
+                "config": {
+                    "type": "RichText",
+                    "placeholder": "Placeholder...",
+                    "label": "Title",
+                    "props": {
+                        "label": "Heading"
+                    }
+                }
+            },
+            "recentPostSubTitle": {
+                "value": "Recent Posts subtitle",
+                "config": {
+                    "type": "RichText",
+                    "placeholder": "Placeholder...",
+                    "label": "Title",
+                    "props": {
+                        "label": "Heading"
+                    }
+                }
+            }
+        }
+    },
+    "blogText": {
+        "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper est ut sem suscipit euismod. Suspendisse potenti. Donec cursus metus sollicitudin ex eleifend faucibus sollicitudin.",
+        "config": {
+            "type": "RichText2",
+            "placeholder": "Placeholder...",
+            "label": "Text",
+            "props": {
+                "label": "Blog Body"
+            }
+        }
+    }
+}

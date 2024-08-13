@@ -1,0 +1,29 @@
+---
+import Header from "../components/Header.astro";
+import BlurCircle from "@/components/shared/BlurCircle.astro";
+import theme from "@/data/theme";
+import SEOTags from "@/components/seo/SEOTags.astro";
+import type { HeadTags } from "@/utils/types/HeadTags";
+
+import "@/styles/tailwind.css";
+import "@/styles/post.css";
+
+export type Props = HeadTags;
+
+const headTags = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <SEOTags {...headTags} />
+  <body
+    class="bg-neutral-950  text-sm text-neutral-400"
+  >
+    <div class="mainContainer">
+      <Header></Header>
+      <slot />
+    </div>
+    
+    
+  </body>
+</html>

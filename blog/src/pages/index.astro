@@ -1,13 +1,33 @@
 ---
 import { getCollection } from "astro:content";
 
-const allPosts = await getCollection("blog");
+import Layout from "@/layouts/Layout.astro";
+import PostCard from "@/components/PostCard.astro";
+import Link from "@/components/shared/Link.astro";
+
+import presentation from "@/data/presentation";
+import AboutResume from "@/components/resumeComponents/AboutResume.astro";
+import ProjectResume from "@/components/resumeComponents/ProjectResume.astro";
+import PostsResume from "@/components/resumeComponents/PostsResume.astro";
+
+
+const posts = (await getCollection("posts")).sort(function (first, second) {
+  return second.data.publishedAt.getTime() - first.data.publishedAt.getTime();
+});
 ---
 
-<main>
-    {
-        allPosts.map((post) => (
-            <a class="btn"  href={"/blog/" + post.slug}>{post.data.title}</a>
-        ))
-    }
-</main>
+<Layout>
+  <main class="flex flex-col gap-[8rem]">
+    <AboutResume/>
+    <ProjectResume/>
+    <PostsResume/>
+    <article class="flex flex-col gap-8">
+      <p>
+        Email me at <Link
+          href={`mailto:${presentation.mail}`}
+          label={presentation.mail}
+        /> - Cristian Pardo 2024
+      </p>
+    </article>
+  </main>
+</Layout>

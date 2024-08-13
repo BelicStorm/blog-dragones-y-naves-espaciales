@@ -1,0 +1,459 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: orangeRed transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 8px;
+    border: 3px solid transparent;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: orangered;
+    border-radius: 10px;
+    width: 8px;
+    border: 3px solid transparent;
+}
+
+body {
+    max-height: 100vh;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+.mainContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    max-height: 100vh;
+}
+
+.mainContainer main {
+    max-height: 100vh;
+    max-width: 100%;
+    overflow: auto;
+    width: 100%;
+    min-height: 100vh;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 980px) {
+    .mainContainer {
+        max-width: 980px;
+        padding: 0 20px;
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
+    }
+
+    /* .mainContainer main {
+        max-height: none;
+    } */
+}
+
+@media screen and (max-width: 980px) {
+    .currentlyPlaying {
+        position: absolute;
+        bottom: 8px;
+        background: #000;
+        z-index: 99;
+        max-width: 300px !important;
+        min-width: 300px !important;
+        width: 100%;
+    }
+}
+
+
+/* Header */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerContainer {
+    width: 80%;
+    padding: 12px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.trivialInfoSection {
+    color: darkorange;
+    display: flex;
+    gap: 8px;
+}
+
+.nav {
+    border: 1px solid rgb(64 64 64);
+    border-radius: 6px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 80%;
+}
+
+.nav a {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav svg {
+    width: 24px;
+    height: auto;
+}
+
+.nav a:hover {
+    border: 1px solid darkorange;
+}
+
+.nav a.active {
+    color: white;
+    font-weight: 700;
+    background: orangered;
+}
+
+.rss {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.icon {
+    border: 1px solid rgb(64 64 64);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #000;
+}
+
+.icon svg {
+    width: 24px;
+    height: auto;
+}
+
+.icon:hover {
+    background-color: darkorange;
+}
+
+@media screen and (max-width: 980px) {
+    header {
+        width: 100%;
+    }
+
+    .headerContainer {
+        width: 100%;
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .nav {
+        flex-direction: row;
+        max-width: 100%;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .rss {
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+    }
+}
+@media screen and (max-width: 776px) {
+    .nav a span, .nav a.active span{
+        display: none;
+    }
+}
+
+/* About resume */
+.AboutResume {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.AboutResume img {
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+}
+
+@media screen and (max-width: 1080px) {
+    .AboutResume img {
+        max-width: 400px;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .AboutResume {
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+        gap: 2rem
+    }
+
+    .AboutResume img {
+        max-width: 500px;
+    }
+}
+
+/* Project Resume */
+
+.projectsResume {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.projectCard:hover {
+    transform: translateY(-20px);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.projectResumeContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.seeMorecard {
+    border: 1px solid rgb(64 64 64);
+    min-width: 260px;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.seeMorecard:hover {
+    background-color: #ffffff21;
+    font-weight: 600;
+    border: 1px solid darkorange;
+    color: white;
+}
+
+/* Project Card */
+.projectCard {
+    width: 260px;
+    height: 370px;
+    display: grid;
+    padding: 0.5rem;
+    color: white;
+    transition: all;
+    transition-duration: 300ms;
+}
+
+.media {
+    position: relative;
+    width: 260px;
+    aspect-ratio: 1;
+    height: 260px;
+}
+
+.projectCard img {
+    position: absolute;
+    inset: 0;
+    max-width: 100%;
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 6px;
+    filter: brightness(1.25);
+}
+
+.rating {
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0.25rem;
+    z-index: 2;
+    background: white;
+    padding: 0.25rem;
+    margin: 0;
+    border-radius: 6px;
+    color: black;
+}
+
+.projectCard img {
+    transition: opacity 0.5s;
+}
+
+
+.projectCard[data-loaded=true]:is(:hover, :focus-within) img {
+    mix-blend-mode: lighten;
+    opacity: 0;
+}
+
+:where(.x-link, .bear-link):is(:hover, :focus-visible) {
+    opacity: 1;
+}
+
+
+.info svg {
+    width: 20px;
+    color: hsl(30 80% 50%);
+}
+
+.info {
+    font-family: monospace;
+    color: white;
+    font-weight: 300;
+    display: grid;
+    gap: 0.25rem;
+    line-height: 1;
+}
+
+.projectCard p {
+    margin: 0;
+    color: darkorange;
+}
+
+.info h3 {
+    line-height: 1.5;
+    color: white;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.info div {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* PostList */
+
+.postListCard:hover {
+    border: 1px solid darkorange;
+}
+
+.postListCard {
+    max-width: none;
+    width: 100%;
+}
+
+.postsResume {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.postsList {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+
+/* Links */
+
+.link:hover {
+    color: darkorange;
+}
+
+
+
+/* Spotify current playing */
+
+.currentlyPlaying {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid rgb(64 64 64);
+    border-radius: 6px;
+    padding: 1rem;
+    max-width: 80%;
+    min-width: 80%;
+}
+
+.currentlyPlaying .title {
+    color: white;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.spotifySpy {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.spotifySpy img {
+    width: 40px;
+    min-width: 40px;
+    border-radius: 6px;
+}
+
+.spotifySpy .info {
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.spotifySpy .info p {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 100;
+    color: darkorange;
+}
+
+.spotifySpy .info p:hover {
+    animation: move 25s linear infinite;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}

@@ -1,0 +1,18 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro";
+import Layout from "@/layouts/Layout.astro";
+import bookmarks from "@/data/bookmarks";
+---
+
+<Layout>
+    <main class="flex flex-col gap-[4rem]">
+        <h1 class="text-2xl text-neutral-100">BookMarks</h1>
+
+        <article class="projectsContent w-full">
+            {
+                bookmarks.length !== 0 &&
+                bookmarks.map((project) => <div class="project"><ProjectCard {...project} /></div>)
+            }
+        </article>
+    </main>
+</Layout>

@@ -1,0 +1,18 @@
+{
+    "placeholder": "Placeholder...",
+    "label": "Template",
+    "options": [
+        {
+            "label": "CTA",
+            "value": "CTA"
+        },
+        {
+            "label": "Header",
+            "value": "Header"
+        },
+        {
+            "label": "Blog",
+            "value": "Blog"
+        }
+    ]
+}

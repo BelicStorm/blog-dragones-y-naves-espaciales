@@ -1,0 +1,48 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import formatDate from "@/utils/formatDate";
+import { LeftIcon } from "@/components/Icons";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+type Props = {
+  post: CollectionEntry<"posts">;
+};
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <main class="post mx-auto flex w-full max-w-prose flex-col gap-4">
+    <a href="/posts" class="backButton">
+      <LeftIcon/> <span>Volver</span>
+    </a>
+    <header role="presentation" class="postHeader">
+      <h1 class="text-md">
+        {post.data.title}
+      </h1>
+      <p class="italic">{post.data.description}</p>
+      <div class="tags">
+        <p>{formatDate(post.data.publishedAt)}</p> 
+        {
+          post.data.tags.map((tag)=>{
+            return <span class="tag">{tag}</span>
+          })
+        }
+      </div>
+    </header>
+
+    <div class="postBody">
+      <Content />
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,27 @@
+---
+import type { Project } from "@/data/projects";
+
+type Props = Project;
+
+const { title, techs, link, isComingSoon } = Astro.props;
+
+const formatTechs = (values: string[]) =>
+  values.toString().replaceAll(",", " • ");
+---
+
+<>
+
+<div class="projectCard">
+  <a href={link} target="_blank" class="media">
+    <img src="https://assets.codepen.io/605876/jhey-product.jpg" alt="Pic of Jhey" />
+    <div class="rating">
+      {formatTechs(techs)}
+    </div>
+  </a>
+  <div class="info">
+    <a href={link} target="_blank"><h3>{title}</h3></a>
+    <p>Short description</p>
+  </div>
+</article>
+
+</>
