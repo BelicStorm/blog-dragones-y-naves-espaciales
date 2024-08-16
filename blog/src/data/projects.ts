@@ -117,6 +117,14 @@ const projects: Project[] = [
     webPage: ""
   },
   {
+    title: "Clone Fotocasa",
+    techs: ["react", "typescript"],
+    image: "/src/assets/FotocasaClone.png",
+    description: "Clon del home del portal Fotocasa",
+    link: "https://github.com/BelicStorm/CloneHomeFotocasa",
+    webPage: ""
+  },
+  {
     title: "GESTIÓN DEL HORARIO",
     techs: ["react", "redux", "typescript", "nodejs", "graphql", "apollo", "docker", "postgresql"],
     image: "/src/assets/horarios.png",
