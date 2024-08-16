@@ -10,6 +10,7 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [tailwind(), sitemap(), robotsTxt(), react()],
   site: SITE_URL,
+  image: { remotePatterns: [{ protocol: "https" }] },
   markdown: {
     syntaxHighlight: "shiki",
     shikiConfig: {

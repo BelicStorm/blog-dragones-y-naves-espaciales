@@ -1,0 +1,12 @@
+---
+  import Card from "astro-link-previews";
+  const {url, tags} = Astro.props;
+---
+
+
+<div class="LinkPreviewContainer">
+  <Card url={url} withStyling={false}/>
+  <div class="tags">
+    {tags.map((tagInfo:any)=><div class="tag">{tagInfo}</div>)}
+  </div>
+</div>

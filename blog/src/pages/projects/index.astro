@@ -1,17 +1,25 @@
 ---
 import ProjectCard from "@/components/ProjectCard.astro";
 import Layout from "@/layouts/Layout.astro";
-import projects from "@/data/projects";
+import { projects } from "@/data/projects";
 ---
 
 <Layout>
-    <main class="flex flex-col gap-[4rem]">
+    <main class="flex flex-col gap-[4rem] mainProjectSection">
         <h1 class="text-2xl text-neutral-100">Projects</h1>
-
+        {["react", "redux", "typescript", "nodejs", "graphql", "apollo", "docker", "postgresql",
+        "Next.js", "TypeScript", "Gatsby", "JS", "Figma","UI","UX"].map((e)=>{
+            return <input type="checkbox" class="chip bounce filters" id={e} type="checkbox" checked role="switch" value={e} aria-label={e}  />
+        })}
+        
         <article class="projectsContent w-full">
             {
                 projects.length !== 0 &&
-                    projects.map((project) => <div class="project"><ProjectCard {...project} /></div>)
+                    projects.map((project) => (
+                        <div class={`project ${project.techs.join(" ")}`}>
+                            <ProjectCard {...project} />
+                        </div>
+                    ))
             }
         </article>
     </main>

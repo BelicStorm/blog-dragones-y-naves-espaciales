@@ -1,5 +1,5 @@
 ---
-import ProjectCard from "@/components/ProjectCard.astro";
+import LinkPreview from "@/components/Linkpreview.astro";
 import Layout from "@/layouts/Layout.astro";
 import bookmarks from "@/data/bookmarks";
 ---
@@ -11,7 +11,9 @@ import bookmarks from "@/data/bookmarks";
         <article class="projectsContent w-full">
             {
                 bookmarks.length !== 0 &&
-                bookmarks.map((project) => <div class="project"><ProjectCard {...project} /></div>)
+                bookmarks.map((project) => <LinkPreview url={project.image} tags={project.techs} />
+                // <div class="project"><ProjectCard {...project} /></div>
+            )
             }
         </article>
     </main>

@@ -10,8 +10,8 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
 
 <article class="postsResume">
     <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Latest posts</h3>
-        <Link href="/posts" label="See all posts" isUnderline target="_self" />
+        <h3 class="text-lg text-neutral-100">Ultimos posts</h3>
+        <Link href="/posts" label="Ver Todos los Posts" isUnderline target="_self" />
     </header>
     {posts.length === 0 && <p>Soon, stay connected 👀...</p>}
 
@@ -30,8 +30,8 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
                         />
                     ))
         }
-        <a class="seeMorecard">
-            <span>Ver todos los proyectos</span>
+        <a class="seeMorecard" href="/posts" title="posts">
+            <span>Ver todos los posts</span>
         </a>
     </section>
 </article>

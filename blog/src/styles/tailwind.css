@@ -55,6 +55,17 @@ body {
     align-items: center;
 }
 
+.mainContainer main.mainProjectSection {
+    max-height: 100vh;
+    max-width: 100%;
+    overflow: auto;
+    width: 100%;
+    min-height: 100vh;
+    padding: 3rem;
+    display: inline-block;
+    align-content: center;
+}
+
 @media screen and (max-width: 980px) {
     .mainContainer {
         max-width: 980px;
@@ -184,14 +195,18 @@ header {
         width: 100%;
         justify-content: space-between;
     }
+
     .rss {
         position: absolute;
         right: 8px;
         bottom: 8px;
     }
 }
+
 @media screen and (max-width: 776px) {
-    .nav a span, .nav a.active span{
+
+    .nav a span,
+    .nav a.active span {
         display: none;
     }
 }
@@ -245,6 +260,11 @@ header {
     /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
+.projectCard:hover img {
+    filter: blur(0px);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
 .projectResumeContent {
     display: flex;
     flex-direction: row;
@@ -274,12 +294,14 @@ header {
 /* Project Card */
 .projectCard {
     width: 260px;
-    height: 370px;
-    display: grid;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
     padding: 0.5rem;
     color: white;
     transition: all;
     transition-duration: 300ms;
+    gap: 8px;
 }
 
 .media {
@@ -290,14 +312,14 @@ header {
 }
 
 .projectCard img {
-    position: absolute;
     inset: 0;
     max-width: 100%;
     width: 260px;
     height: 260px;
+    -o-object-fit: cover;
     object-fit: cover;
     border-radius: 6px;
-    filter: brightness(1.25);
+    filter: blur(2px);
 }
 
 .rating {
@@ -312,9 +334,7 @@ header {
     color: black;
 }
 
-.projectCard img {
-    transition: opacity 0.5s;
-}
+
 
 
 .projectCard[data-loaded=true]:is(:hover, :focus-within) img {
@@ -330,6 +350,18 @@ header {
 .info svg {
     width: 20px;
     color: hsl(30 80% 50%);
+}
+
+.projectCard .info {
+    font-family: monospace;
+    color: white;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    line-height: 1;
+    justify-content: space-around;
+    height: 100%;
 }
 
 .info {
@@ -448,6 +480,45 @@ header {
     animation: move 25s linear infinite;
 }
 
+
+
+.smallButton {
+    padding: 8px;
+    border: 1px solid rgb(64 64 64);
+    border-radius: 7px;
+}
+
+.smallButton:hover {
+    border: 1px solid orangered;
+    color: orangered;
+}
+
+.LinkPreviewContainer {
+    padding: 8px;
+    border: 1px solid rgb(64 64 64);
+    border-radius: 8px;
+    transition: all;
+    transition-duration: 300ms;
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.LinkPreviewContainer:hover {
+    transform: translateY(-20px);
+    border: 1px solid darkorange;
+}
+
+.astro-link-preview__description-title {
+    color: white;
+}
+
+.astro-link-preview__image {
+    border-radius: 8px;
+}
+
 @keyframes move {
     0% {
         transform: translate(0, 0);
@@ -455,5 +526,155 @@ header {
 
     100% {
         transform: translate(-100%, 0);
+    }
+}
+
+.filters {
+    margin-left: 20px;
+    margin-top: 16px;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+
+.projectsContent .project {
+    display: none;
+}
+
+
+
+#JS:checked~.projectsContent .project.JS,
+#Gatsby:checked~.projectsContent .project.Gatsby,
+#TypeScript:checked~.projectsContent .project.TypeScript,
+#Next.js:checked~.projectsContent .project.Next.js,
+#redux:checked~.projectsContent .project.redux,
+#react:checked~.projectsContent .project.react,
+#nodejs:checked~.projectsContent .project.nodejs,
+#graphql:checked~.projectsContent .project.graphql,
+#apollo:checked~.projectsContent .project.apollo,
+#docker:checked~.projectsContent .project.docker,
+#postgresql:checked~.projectsContent .project.postgresql,
+#Figma:checked~.projectsContent .project.Figma,
+#UX:checked~.projectsContent .project.UX,
+#UI:checked~.projectsContent .project.UI {
+    display: flex !important;
+    justify-content: center;
+}
+
+input:where(.chip[type="checkbox"]) {
+    --color: #6c6;
+    color: white;
+    font-size: 1rem;
+    appearance: none;
+    position: relative;
+    border: 1px solid #0004;
+    border-radius: 100em;
+    overflow: clip;
+    margin: 0;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input:where(.chip[type="checkbox"])::after {
+    content: attr(value);
+    white-space: pre;
+    line-height: 1;
+    position: relative;
+    padding: 0.5em 1em 0.5em 2em;
+    display: block;
+}
+
+input:where(.chip[type="checkbox"])::before {
+    content: "";
+    display: inline-block;
+    width: 0.75em;
+    aspect-ratio: 1;
+    background: linear-gradient(currentcolor 0 0), linear-gradient(currentcolor 0 0);
+    background-position: -200% -2em, 2em -200%, 50% 50%;
+    background-size: 1em 0.125em, 0.125em 1em;
+    background-repeat: no-repeat;
+    background-color: orangered;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 1.125em;
+    translate: -50% -50%;
+    rotate: 45deg;
+    transition: width 0.25s, background-position 0.5s;
+}
+
+input:where(.chip[type="checkbox"]).grow::before,
+input:where(.chip[type="checkbox"]).bounce::before {
+
+    background-position: 50% 50%, 50% 50%, 50% 50%;
+    background-size: 0 0, 0 0;
+    transition: width 0.25s, background-size 0.5s;
+
+}
+
+input:where(.chip[type="checkbox"]).bounce::before {
+
+    transition-timing-function: ease-in-out, cubic-bezier(0.75, 0, 0.5, 2);
+
+}
+
+input:where(.chip[type="checkbox"]):checked::before {
+
+    width: 200%;
+    background-position: 50% 50%, 50% 50%, 50% 50%;
+    background-size: 1em 0.125em, 0.125em 1em;
+
+}
+
+input:where(.chip[type="checkbox"]):disabled {
+    --color: white !important;
+    color: white;
+    border-color: #0001;
+}
+
+input:where(.chip[type="checkbox"]):hover:not(:disabled) {
+    border-color: #000a;
+    background-color: rgb(from var(--color) r g b / 10%);
+    transition: 0.4s;
+}
+
+@media print {
+
+    input:where(.chip[type="checkbox"]),
+    input:where(.chip[type="checkbox"])::before,
+    input:where(.chip[type="checkbox"])::after {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+@media (prefers-reduced-motion) {
+
+    input:where(.chip[type="checkbox"]),
+    input:where(.chip[type="checkbox"])::before,
+    input:where(.chip[type="checkbox"])::after {
+
+
+        transition: none !important;
+
+    }
+}
+
+
+@media (prefers-contrast: more) {
+    input:where(.chip[type="checkbox"])::before {
+        background: highlight;
+    }
+
+    input:where(.chip[type="checkbox"]):disabled {
+        border-color: white;
+    }
+
+    input:where(.chip[type="checkbox"]):disabled::before {
+        background: white;
+    }
+
+    input:where(.chip[type="checkbox"]):disabled::after {
+        color: white;
     }
 }

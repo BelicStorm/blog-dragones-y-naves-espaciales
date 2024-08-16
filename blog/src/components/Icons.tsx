@@ -67,6 +67,13 @@ const GithubIcon = () => {
         </svg>
     );
 }
+const GitLabIcon = () => {
+    return (
+        <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.6866 13.8822L13.1333 19.1915C12.4433 19.6766 11.5231 19.6766 10.833 19.1915L3.27976 13.8822C3.16308 13.7992 3.07653 13.6826 3.0325 13.5492C2.98846 13.4157 2.9892 13.2722 3.03459 13.1392L4.03161 10.1514L6.02563 4.2154C6.04497 4.16703 6.07576 4.12372 6.11552 4.08893C6.18028 4.03172 6.26481 4 6.35252 4C6.44022 4 6.52475 4.03172 6.58951 4.08893C6.6315 4.12819 6.66244 4.17716 6.67941 4.2312L8.21482 8.78981C8.48886 9.60346 9.25164 10.1514 10.1102 10.1514H13.8549C14.7141 10.1514 15.4772 9.60271 15.7508 8.78828L17.2869 4.2154C17.3063 4.16703 17.3371 4.12372 17.3768 4.08893C17.4416 4.03172 17.5261 4 17.6138 4C17.7015 4 17.7861 4.03172 17.8508 4.08893C17.8928 4.12819 17.9238 4.17716 17.9407 4.2312L19.9347 10.1672L20.9726 13.1392C21.0139 13.2763 21.0084 13.4227 20.9569 13.5565C20.9053 13.6904 20.8105 13.8046 20.6866 13.8822Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    );
+}
 const ProjectIcon = () => {
     return (
         <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -122,5 +129,20 @@ const GoodReadsIcon = () => {
 
     );
 }
+const FigmaIcon = () => {
+    return (
+        <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3H9C7.34315 3 6 4.34315 6 6C6 7.65685 7.34315 9 9 9M12 3V9M12 3H15C16.6569 3 18 4.34315 18 6C18 7.65685 16.6569 9 15 9M12 9H9M12 9H15M12 9V15M9 9C7.34315 9 6 10.3431 6 12C6 13.6569 7.34315 15 9 15M15 9C16.6569 9 18 10.3431 18 12C18 13.6569 16.6569 15 15 15C13.3431 15 12 13.6569 12 12C12 10.3431 13.3431 9 15 9ZM12 15H9M12 15V18C12 19.6569 10.6569 21 9 21C7.34315 21 6 19.6569 6 18C6 16.3431 7.34315 15 9 15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    );
+}
 
-export { GoodReadsIcon, GithubIcon, BookmarkIcon, BlogIcon, AboutMeIcon, HomeIcon, LinkedinIcon, ProjectIcon, SpotifyIcon, LeftIcon }
+const SocialIcons: any = {
+    GoodReads: () => <GoodReadsIcon></GoodReadsIcon>,
+    Linkedin: () => <LinkedinIcon></LinkedinIcon>,
+    Github: () => <GithubIcon></GithubIcon>,
+    GitLab: ()=> <GitLabIcon></GitLabIcon>,
+    Figma: () => <FigmaIcon></FigmaIcon>
+};
+
+export { GoodReadsIcon, GithubIcon, BookmarkIcon, BlogIcon, AboutMeIcon, HomeIcon, LinkedinIcon, ProjectIcon, SpotifyIcon, LeftIcon, FigmaIcon, SocialIcons }

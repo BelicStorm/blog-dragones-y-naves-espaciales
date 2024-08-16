@@ -1,27 +1,40 @@
 ---
 import type { Project } from "@/data/projects";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 
 type Props = Project;
-
-const { title, techs, link, isComingSoon } = Astro.props;
+const { title, techs, link, image, description, webPage } = Astro.props;
 
 const formatTechs = (values: string[]) =>
   values.toString().replaceAll(",", " • ");
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "src/assets/*.{jpeg,jpg,png,gif}",
+);
+
+if (!images[image])
+  throw new Error(
+    `"${image}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`,
+  );
+
 ---
 
 <>
-
-<div class="projectCard">
-  <a href={link} target="_blank" class="media">
-    <img src="https://assets.codepen.io/605876/jhey-product.jpg" alt="Pic of Jhey" />
-    <div class="rating">
-      {formatTechs(techs)}
+  <div class={`projectCard `}>
+    <div class="media">
+      <Image src={images[image]()} alt={title} />
+      <div class="rating">
+        {formatTechs(techs)}
+      </div>
     </div>
-  </a>
-  <div class="info">
-    <a href={link} target="_blank"><h3>{title}</h3></a>
-    <p>Short description</p>
+    <div class="info">
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <div>
+        {link ? <a href={link} class="smallButton" target="_blank" rel="noopener noreferrer">Repositorio</a> :""}
+        {webPage ?<a href={webPage} class="smallButton" target="_blank" rel="noopener noreferrer">Web Desplegada</a> :""}
+      </div>
+    </div>
   </div>
-</article>
-
 </>
