@@ -42,8 +42,13 @@ const bookmarks: Bookmark[] = [
   { title: "Ascii Icons", techs: ["Icons"], image: "https://www.toptal.com/designers/htmlarrows/", link: "https://www.toptal.com/designers/htmlarrows/", },
   { title: "Dev Documentation", techs: ["Documentation", "Astro", "CSS", "HTML", "React", "JS", "TS", "Tailwind"], image: "https://devdocs.io/javascript/", link: "https://devdocs.io/javascript/", },
   { title: "Swappy Draggable", techs: ["React", "repo"], image: "https://swapy.tahazsh.com/", link: "https://swapy.tahazsh.com/", },
-  {title:"Structure utilities", techs:["repo"], image:"https://jam.dev/utilities", link:"https://jam.dev/utilities"},
+  { title:"Structure utilities", techs:["repo"], image:"https://jam.dev/utilities", link:"https://jam.dev/utilities"},
   { title: "Astro Link Preview", techs: ["Repo", "Astro"], image: "https://github.com/Suven/astro-link-previews?tab=readme-ov-file", link: "https://github.com/Suven/astro-link-previews?tab=readme-ov-file", },
+  { title: "CollectUI", techs: ["Design Inspiration"], image: "https://collectui.com/", link: "https://collectui.com/", },
+  { title: "Create Custom Scrollbar", techs: ["CSS"], image: "https://scrollbar.app/", link: "https://scrollbar.app/", },
+  { title: "Design Principles", techs: ["Documentation"], image: "https://principles.design/", link: "https://principles.design/", },
+  { title: "ColorPalette", techs: ["Color"], image: "https://www.colourpalettegenerator.com/", link: "https://www.colourpalettegenerator.com/", },
+  { title: "CSS Grid Generator", techs: ["CSS"], image: "https://cssgridgenerator.io/", link: "https://cssgridgenerator.io/", },
 ];
 
 export default bookmarks;
