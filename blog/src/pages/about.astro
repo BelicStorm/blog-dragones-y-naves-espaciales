@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Ava from '@src/assets/img/ava.jpg';
+import Prose from '../components/Prose.astro';
+import { presentation } from '@src/utils';
+
+---
+
+<BaseLayout
+	title="About Me"
+	description="Lorem ipsum dolor sit amet"
+>
+  <div class='container'>
+		<main class='prose text-lg dark:prose-invert'>
+      <article>
+        <div class='w-full md:flex md:items-center gap-16 mb-10'>
+          <div class="text-pretty leading-9">
+            <h1 class="text-4xl font-bold mb-4">{presentation.title} </h1>
+            <Prose>
+              <div class="text-lg">
+                <p>Holaa, encantado de que hayas llegado hasta aquí. Me dedico a ser frontend developer y diseñador de UX desde hace 5 años, también hago mis pinitos en la escritura (nada publicado) y en el diseño de juegos de mesa. Actualmente, trabajo con <strong>React</strong>, <strong>Astro</strong>, <strong>Next.js</strong>  y <strong>TypeScript</strong> en mi trabajo como developer y <strong>Figma</strong>  y <strong>Penpot</strong> como diseñador.</p>
+                <p>Tengo otros talentos, pero como presentación creo que es suficiente. Fuera del trabajo intento leer y seguir aprendiendo.</p>
+              </div>
+            </Prose>
+          </div>
+          <Image src={Ava} alt="Nu gundam" width={300}  class="rounded-3xl rotate-3 mx-4 md:mx-0"/>
+        </div>     
+        <div>
+            <h2>2018-2020</h2>
+          <p>
+            Mi trayectoria comenzó en 2018, tras completar mis estudios de grado superior en <strong>Administración de Sistemas Informáticos en Red (ASIR)</strong> y <strong>Desarrollo de Aplicaciones Web (DAW)</strong>. 
+            Desde entonces, he acumulado experiencia en diversos roles, comenzando como QA tester durante mis prácticas en <strong>Devopensource</strong>, donde utilicé herramientas como Selenium y Cypress para asegurar la calidad del software.
+          </p>
+          <h2>2021-2022</h2>
+          <p>
+            En <strong>Aplisein</strong>, di mis primeros pasos en el diseño de interfaces y la creación de Design Systems, 
+            combinando mi trabajo como Junior FullStack Developer con un creciente interés por el diseño UX/UI. Esta experiencia me permitió entender 
+            la importancia de un enfoque centrado en el usuario desde las primeras etapas del desarrollo.
+          </p>
+          <h2>2023-2024</h2>
+          <p>
+            Posteriormente, me especialicé en React durante mi año en <strong>Social WoW</strong>, lo que me permitió profundizar en la creación de interfaces de usuario eficientes y escalables. 
+            Esta especialización se complementó en <strong>Cicass79</strong>, donde además de trabajar 
+            como FrontEnd Developer, asumí responsabilidades en el diseño UX/UI, consolidando mis habilidades en la creación de experiencias de usuario coherentes y atractivas.
+          </p>
+          <h2>Actualmente</h2>
+          <p>
+            Actualmente, en <strong>Visual Limes</strong>, continúo perfeccionando mis habilidades y contribuyendo a proyectos innovadores que combinan creatividad y 
+            tecnología. Estoy comprometido con el aprendizaje continuo y la adopción de las mejores prácticas en desarrollo web para ofrecer productos 
+            digitales de alta calidad que proporcionen experiencias de usuario excepcionales.
+          </p>
+          <p>
+            Mi objetivo es seguir evolucionando en el ámbito del desarrollo frontend y UX/UI, buscando siempre 
+            nuevas oportunidades para aplicar y expandir mis conocimientos en entornos colaborativos y desafiantes.
+          </p>
+        </div>
+        </article>
+      </article>
+    </main>
+  </div>
+</BaseLayout>

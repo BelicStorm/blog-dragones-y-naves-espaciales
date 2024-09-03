@@ -1,20 +1,19 @@
 ---
-import LinkPreview from "@/components/Linkpreview.astro";
-import Layout from "@/layouts/Layout.astro";
-import bookmarks from "@/data/bookmarks";
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectList from '../../components/ProjectList.astro';
+import { bookmarks } from './bookmarks';
+
 ---
 
-<Layout>
-    <main class="flex flex-col gap-[4rem]">
-        <h1 class="text-2xl text-neutral-100">BookMarks</h1>
-
-        <article class="projectsContent w-full">
-            {
-                bookmarks.length !== 0 &&
-                bookmarks.map((project) => <LinkPreview url={project.image} tags={project.techs} />
-                // <div class="project"><ProjectCard {...project} /></div>
-            )
-            }
-        </article>
-    </main>
-</Layout>
+<BaseLayout
+	title="BelicStorm BookMarks"
+	description="All my favorite pages for saving time and lives."
+>
+  <div class='container'>
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold mb-2">All My Projects</h1>
+      <p class="text-zinc-700 dark:text-zinc-300 text-lg">All my project portfolio from real projects to open source projects.</p>
+    </div>
+    <ProjectList projects={bookmarks}/>
+  </div>
+</BaseLayout>
