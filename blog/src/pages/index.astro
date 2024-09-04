@@ -31,7 +31,7 @@ const posts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b
           </div>
         </Prose>
       </div>
-      <Image src={Ava} alt="Muhammad Syakirurohman" width={300} loading="eager" class="rounded-3xl rotate-3 mx-4 md:mx-0"/>
+      <Image src={Ava} alt="BelicStorm" width={300} loading="eager" class="rounded-3xl rotate-3 mx-4 md:mx-0"/>
 		</div>
 		<main>
       <div class='mt-6 mb-12'>
@@ -63,7 +63,7 @@ const posts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b
       <div class='mt-6 mb-12'>
         <div class="flex justify-between gap-2 mb-1">
           <h2 class="text-lg font-bold mb-3">My Bookmarks</h2>
-          <a href="/bookmarks/" class="inline-block py-2 underline">All Bookmarks &raquo;</a>
+          <a href="/vault/" class="inline-block py-2 underline">All Bookmarks &raquo;</a>
         </div>
         <ProjectList projects={top6Bookmarks}/>
       </div>
