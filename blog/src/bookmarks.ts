@@ -11,13 +11,13 @@ export interface Project {
 }
 export const bookmarks: Project[] = [
 	{ name: "SVG Repo", tags: ["Icons"], demoLink: "https://www.svgrepo.com" },
-	{ name: "Mockups 1", tags: ["Mockups"], demoLink: "https://mrmockup.com/free-mockups/"},
-	{ name: "DS Gallery", tags: ["Design Systems"], demoLink: "https://designsystemsrepo.com/design-systems/"},
-	{ name: "Mockups 2", tags: ["Mockups"], demoLink: "https://www.ls.graphics/free-mockups",},
-	{ name: "Fonts 1", tags: ["Fonts"], demoLink: "https://www.freefaces.gallery/", },
-	{ name: "Font Pairing", tags: ["Fonts"], demoLink: "https://fontjoy.com/", },
-	{ name: "Design Inspiration 1", tags: ["Design Inspiration"], demoLink: "https://www.landingfolio.com/", },
-	{ name: "Design Inspiration 2", tags: ["Design Inspiration"], demoLink: "https://www.curated.design/", },
+	{ name: "Mrmockup", tags: ["Mockups"], demoLink: "https://mrmockup.com/free-mockups/"},
+	{ name: "Design Systems Repo", tags: ["Design System"], demoLink: "https://designsystemsrepo.com/design-systems/"},
+	{ name: "LS Graphics", tags: ["Mockups"], demoLink: "https://www.ls.graphics/free-mockups",},
+	{ name: "Free Faces", tags: ["Fonts"], demoLink: "https://www.freefaces.gallery/", },
+	{ name: "Font Joy", tags: ["Fonts"], demoLink: "https://fontjoy.com/", },
+	{ name: "Landingfolio", tags: ["Design Inspiration"], demoLink: "https://www.landingfolio.com/", },
+	{ name: "Curated", tags: ["Design Inspiration"], demoLink: "https://www.curated.design/", },
 	{ name: "Css background Patterns", tags: ["CSS"], demoLink: "https://heropatterns.com/", },
 	{ name: "Can I Use", tags: ["Utility"], demoLink: "https://caniuse.com/", },
 	{ name: "Cheat Sheet Git", tags: ["Documentation", "Cheat sheet", "Git"], demoLink: "https://education.github.com/git-cheat-sheet-education.pdf" },
@@ -43,7 +43,6 @@ export const bookmarks: Project[] = [
 	{ name: "React Custom Hooks Cheat Sheet", tags: ["Cheat sheet", "React"], demoLink: "https://github.com/sergeyleschev/react-custom-hooks", },
 	{ name: "React Tooltip", tags: ["Repo", "React"], demoLink: "https://github.com/ReactTooltip/react-tooltip/", },
 	{ name: "Tailwind Components", tags: ["Tailwind"], demoLink: "https://flowrift.com/c/banner", },
-	{ name: "Ascii Icons", tags: ["Icons"], demoLink: "https://www.toptal.com/designers/htmlarrows/", },
 	{ name: "Dev Documentation", tags: ["Documentation"], demoLink: "https://devdocs.io/javascript/", },
 	{ name: "Swappy Draggable", tags: ["React", "repo"], demoLink: "https://swapy.tahazsh.com/", },
 	{ name: "Structure utilities", tags: ["repo"], demoLink: "https://jam.dev/utilities", },
@@ -51,7 +50,7 @@ export const bookmarks: Project[] = [
 	{ name: "CollectUI", tags: ["Design Inspiration"], demoLink: "https://collectui.com/", },
 	{ name: "Create Custom Scrollbar", tags: ["CSS"], demoLink: "https://scrollbar.app/", },
 	{ name: "Design Principles", tags: ["Documentation"], demoLink: "https://principles.design/", },
-	{ name: "ColorPalette", tags: ["Color"], demoLink: "https://www.colourpalettegenerator.com/", },
+	{ name: "ColorPalette", tags: ["Colors"], demoLink: "https://www.colourpalettegenerator.com/", },
 	{ name: "CSS Grid Generator", tags: ["CSS"], demoLink: "https://cssgridgenerator.io/",},
 ];
 

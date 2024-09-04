@@ -35,7 +35,7 @@ const posts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b
       <div class='mt-6 mb-12'>
         <div class="flex justify-between gap-2">
           <h2 class="text-lg font-bold mb-3">Recent Posts</h2>
-          <a href="/posts/" class="inline-block py-2 underline text-zinc-950">All posts &raquo;</a>
+          <a href="/posts/" class="inline-block py-2 underline">All posts &raquo;</a>
         </div>
         <div style={{
           border: "1px solid #e5e7eb",
@@ -54,7 +54,7 @@ const posts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b
       <div>
         <div class="flex justify-between gap-2 mb-1">
           <h2 class="text-lg font-bold mb-3">My Projects</h2>
-          <a href="/projects/" class="inline-block py-2 underline text-zinc-950">All projects &raquo;</a>
+          <a href="/projects/" class="inline-block py-2 underline">All projects &raquo;</a>
         </div>
         <ProjectList projects={top6Projects}/>
       </div>
