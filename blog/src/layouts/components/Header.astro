@@ -37,6 +37,11 @@ const menu = [
 		label: 'Tags'
 	},
 ];
+export const getStaticPaths = async () => {
+	const result = menu.map((item)=> item.link)
+	return result
+};
+
 const icons = {
 	dark:{
 		Github:Github,
