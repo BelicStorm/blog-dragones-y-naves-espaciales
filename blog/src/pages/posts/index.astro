@@ -1,32 +1,25 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "@/layouts/Layout.astro";
-import PostCard from "@/components/PostCard.astro";
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostsByYear from '../../components/PostsByYear.astro';
 
-const posts = (await getCollection("posts")).sort(function (first, second) {
-  return second.data.publishedAt.getTime() - first.data.publishedAt.getTime();
-});
+type BlogPost = CollectionEntry<'blog'>;
+const title = 'All posts'
+const description = 'Articles, guides, tutorials about front-end development.'
+
+const posts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<Layout>
-  <main class="flex flex-col gap-[4rem]">
-    <h1 class="text-2xl text-neutral-100">Posts</h1>
-
-    <article class="flex flex-col gap-4">
-      {
-        posts.length !== 0 &&
-            posts
-                .slice(0, 2)
-                .map((post) => (
-                    <PostCard
-                        publishedAt={post.data.publishedAt}
-                        title={post.data.title}
-                        description={post.data.description}
-                        slug={post.slug}
-                        tags={post.data.tags}
-                    />
-                ))
-    }
-    </article>
-  </main>
-</Layout>
+<BaseLayout
+	title={title}
+	description={description}
+>
+  <div class='container'>
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold mb-2">{title}</h1>
+      <p class="text-zinc-700 dark:text-zinc-300 text-lg">{description}</p>
+    </div>
+    <PostsByYear posts={posts}/>
+  </div>
+</BaseLayout>

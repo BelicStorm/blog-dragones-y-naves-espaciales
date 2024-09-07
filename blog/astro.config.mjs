@@ -1,21 +1,19 @@
-import { defineConfig } from "astro/config";
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
-import sitemap from "@astrojs/sitemap";
-import robotsTxt from "astro-robots-txt";
-import { SITE_URL } from "./src/data/config";
+import { autoNewTabExternalLinks } from './src/autoNewTabExternalLinks';
 
-import react from "@astrojs/react";
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), sitemap(), robotsTxt(), react()],
-  site: SITE_URL,
-  image: { remotePatterns: [{ protocol: "https" }] },
+  site: 'https://BelicStorm.com',
+  integrations: [mdx(), sitemap(), tailwind(), partytown()],
   markdown: {
-    syntaxHighlight: "shiki",
-    shikiConfig: {
-      theme: "nord",
-      wrap: false
-    }
+    extendDefaultPlugins: true,
+    rehypePlugins: [[autoNewTabExternalLinks, {
+      domain: 'localhost:4321'
+    }]]
   }
 });

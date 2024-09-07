@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectList from '../../components/ProjectList.astro';
+import { bookmarks } from "@src/bookmarks"
+
+---
+
+<BaseLayout
+	title="BelicStorm BookMarks"
+	description="All my favorite pages for saving time and lives."
+>
+  <div class='container'>
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold mb-2">All My BookMarks</h1>
+      <p class="text-zinc-700 dark:text-zinc-300 text-lg">All my day a day bookmarks for programing and design </p>
+    </div>
+    <ProjectList projects={bookmarks}/>
+  </div>
+</BaseLayout>
