@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "710a0c0c420b8fb2",
+        "id": "0578926c6f1220ca",
         "type": "tabs",
         "children": [
           {
-            "id": "b91109f0aa0aaa37",
+            "id": "c6802e22cc122535",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -81,6 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "src/content/blog/2024-09-09-Deuda-Tecnica/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "src/content/blog/2024-09-09-Deuda-Tecnica/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +120,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "src/content/blog/2024-09-09-Deuda-Tecnica/index.md"
+              }
             }
           }
         ]
@@ -139,6 +143,43 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b91109f0aa0aaa37",
-  "lastOpenFiles": []
+  "active": "006f261fe392fe90",
+  "lastOpenFiles": [
+    "src/content/blog/2024-08-18-markdown-style-guide/index.md",
+    "src/content/blog/2024-08-18-markdown-style-guide/blog-placeholder-4.jpg",
+    "src/content/blog/2022-10-27-reseña-chainsawman-part1/Volume_01.webp",
+    "src/content/blog/2022-10-27-reseña-chainsawman-part1/index.md",
+    "src/content/blog/2022-10-20-reseña-angeles-rotos/index.md",
+    "src/content/blog/2022-10-20-reseña-angeles-rotos/download.jpg",
+    "src/content/blog/2022-10-18-reseña-el-mundo-que-jones-creo/index.md",
+    "src/content/blog/2022-10-11-reseña-metro-2033/index.md",
+    "src/content/blog/2022-10-18-reseña-el-mundo-que-jones-creo/download.jpg",
+    "src/content/blog/2022-10-11-reseña-metro-2033/download.jpg",
+    "src/content/blog/2022-10-04-reseña-el-ser-del-umbral/index.md",
+    "src/content/blog/2022-10-04-reseña-el-ser-del-umbral/download.jpg",
+    "src/content/blog/2022-09-16-reseña-altered-carbon/index.md",
+    "src/content/blog/2022-09-16-reseña-altered-carbon/download.jpg",
+    "src/content/blog/2022-09-13-reseña-loteria-solar/Solar_Lottery_(1955).jpg",
+    "src/content/blog/2022-09-13-reseña-loteria-solar/index.md",
+    "src/content/blog/2022-08-30-reseña-look-back/index.md",
+    "src/content/blog/2022-08-30-reseña-look-back/download.jpg",
+    "src/content/blog/2022-08-23-reseña-snow-crash/index.md",
+    "src/content/blog/2022-08-23-reseña-snow-crash/download.jpg",
+    "src/content/blog/2022-08-09-reseña-esperando-al-año-pasado/index.md",
+    "src/content/blog/2022-08-02-reseña-tres-estigmas-palmer/index.md",
+    "src/content/blog/2022-06-19-reseña-tiempo-de-marte/index.md",
+    "src/content/blog/2022-07-26-reseña-blame/index.md",
+    "src/content/blog/2022-07-12-reseña-omelas/index.md",
+    "src/content/blog/2022-06-05-reseña-bovedas-de-acero/index.md",
+    "src/content/blog/2024-08-18-markdown-style-guide",
+    "src/content/blog/2022-10-27-reseña-chainsawman-part1",
+    "src/content/blog/2022-10-20-reseña-angeles-rotos",
+    "src/content/blog/2022-10-18-reseña-el-mundo-que-jones-creo",
+    "src/content/blog/2022-10-11-reseña-metro-2033",
+    "src/content/blog/2022-10-04-reseña-el-ser-del-umbral",
+    "src/content/blog/2022-09-16-reseña-altered-carbon",
+    "src/content/blog/2022-09-13-reseña-loteria-solar",
+    "src/content/blog/2022-08-30-reseña-look-back",
+    "src/content/blog/2022-08-23-reseña-snow-crash"
+  ]
 }
