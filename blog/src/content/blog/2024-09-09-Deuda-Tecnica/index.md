@@ -4,7 +4,7 @@ seoTitle: 'Deuda técnica'
 slug: 'technical-debt'
 description: 'Un pequeño ensayo sobre la deuda técnica'
 pubDate: '2024-09-10'
-updatedDate: '2024-11-10'
+updatedDate: '2024-09-11'
 tags: ["Otros"]
 coverImage: './blog-placeholder-4.jpg'
 ---
