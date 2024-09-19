@@ -1,6 +1,6 @@
 ---
 title: 'La Importancia del Diseño en la Creación de una Imagen de Marca y Narrativa Empresarial'
-seoTitle: 'Deuda técnica'
+seoTitle: 'La Importancia del Diseño en la Creación de una Imagen de Marca y Narrativa Empresarial'
 slug: 'uxui-brand'
 description: 'Un pequeño ensayo sobre la importancia del UX/UI en la imagen de Marca'
 pubDate: '2024-09-19'
