@@ -22,13 +22,9 @@ Empezamos por algo que es crucial en el planteamiento de un producto: Su identid
 
 Para que un producto tenga una identidad fuerte, la UI debe ser memorable y distintiva, proyectando la personalidad del producto y creando una primera impresión que permanezca en la mente del usuario. La claridad, simplicidad y coherencia son esenciales para que la interfaz de usuario transmita una experiencia positiva. 
 
-```markdown
-
 > El diseño no es solo cómo se ve o cómo se siente. El diseño es cómo funciona. <br>
 
 > — <cite>Steve Jobs</cite>
-
-```
 
 Con esta frase se destaca la importancia de integrar estética y funcionalidad, asegurando así que el producto no solo se vea bien, sino que también sea intuitivo y fácil de usar.
 
@@ -37,13 +33,9 @@ Ya tenemos nuestra narrativa, nuestra identidad esta marcada y remarcada por una
 
 El diseño de la experiencia de usuario (UX) asegura que cada interacción con el producto sea intuitiva y natural. Un buen diseño UX se centra en guiar al usuario a través del producto sin necesidad de una curva de aprendizaje empinada. 
 
-```markdown
-
 > Cualquier producto que necesite un manual para funcionar está roto. <br>
 
 > — <cite>Elon Musk</cite>
-
-```
 
 Los pequeños detalles, como un espaciado uniforme, un esquema de colores cohesivo, micro interacciones que ayuden al usuario a saber que esta haciendo en todo momento; refuerzan la identidad del producto y crean una experiencia visual memorable.
 
