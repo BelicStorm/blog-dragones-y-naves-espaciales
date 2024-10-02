@@ -59,7 +59,6 @@ export function getFullImagePath({path = ""}:imagePathParams) {
 #### 4. **Eliminar la barra final de la URL base**
 - Utilizamos una expresión regular para eliminar una barra (/) al final de BaseUrl en caso de que esté presente para evitar que haya doble barra (//) al concatenar la URL base con el camino relativo de la imagen.
 #### 5. **Concatenación de la URL base y el camino**
-
 - El paso clave es la concatenación de la URL base con el camino proporcionado:
 - Comprobar si **path** comienza con **/**: Si el camino ya comienza con una barra (/), se concatena directamente a **cleanBaseUrl**. Si no comienza con una barra, se añade una barra antes de concatenarlo. Esto asegura que la URL final sea válida y esté bien formateada.
 - Por ejemplo:
@@ -130,7 +129,7 @@ export default ControlledImage;
 #### 4. **Manejo dinámico de la URL de la imagen**
 - Si addBaseUrl es true, la guardaremos dentro de la constante formatedSrc el resultado de la función getFullImagePath para obtener la URL base con el src proporcionado. Si no, se guardara el src tal cual.
 #### 5. **Renderizado condicional de la imagen**
-- El atributo src de la etiqueta <img> se determina así:
+- El atributo src de la etiqueta img se determina así:
     - Si hubo un error, se muestra una imagen de marcador de posición que dice "Image not Found".
     - Si la imagen aún está cargando, se muestra una imagen proporcionada por props o la por defecto para indicar que está cargando.
     - Si la imagen se cargó correctamente, se muestra la imagen.
@@ -143,7 +142,7 @@ export default ControlledImage;
 ### Ejemplo de uso del componente:
 
 Este es un ejemplo de cómo se podría usar el componente **ControlledImage** en una aplicación:
-```ts
+```js
 <ControlledImage src={imageURL} alt={id} className="img" loadingImg={LoadingImage}/>
 ```
 
